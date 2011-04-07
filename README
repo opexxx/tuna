@@ -1,1 +1,5 @@
-PLACEHOLDER
+The Tuna project is a set of tools to create and send random emails, gather bouncebacks, and process those bouncebacks for sensitive information.
+
+The email sending / receiving components are currently located in the gather/ directory. 
+
+The email processing components are being built in a rails app, located in the tuna_factory/ directory./
