@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110312164258) do
+ActiveRecord::Schema.define(:version => 20110407062938) do
 
   create_table "emails", :force => true do |t|
     t.text     "fulltext"
@@ -25,12 +25,20 @@ ActiveRecord::Schema.define(:version => 20110312164258) do
     t.datetime "updated_at"
   end
 
+  create_table "fingerprint_matches", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "email_id"
+    t.integer  "fingerprint_id"
+  end
+
   create_table "fingerprints", :force => true do |t|
+    t.string   "name"
     t.string   "regex"
     t.text     "description"
     t.integer  "confidence"
     t.text     "references"
-    t.boolean  "case"
+    t.boolean  "case_sensitive"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

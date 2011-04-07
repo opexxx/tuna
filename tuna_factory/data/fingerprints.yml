@@ -1,64 +1,69 @@
 ---
- - mta-sendmail:
+ - name: mta-sendmail
    regex: sendmail
    case: false
    description: Sendmail MTA
    confidence: 100
    references:
     - http://www.sendmail.org
- - mta-postfix:
+ - name: mta-postfix
    regex: postfix
    case: false
    description: Postfix MTA
    confidence: 100
    references:
     - http://www.postfix.org/
- - mta-exim:
+ - name: mta-exim
    regex: exim
    case: false
    description: Exim MTA
    confidence: 100
    references:
     - http://www.exim.org/
- - mta-exchange:
+ - name: mta-exchange
    regex: exchange
    case: false
    description: Microsoft Exchange Server
    confidence: 100
    references:
     - http://www.microsoft.com
- - mta-exchange-version-sp1:
+ - name: mta-exchange-version-sp1
    regex: 8.1.436
    case: false
    description: Microsoft Exchange Server 2007 SP1
    confidence: 100
    references:
     - http://www.microsoft.com/
- - mta-exim-version-469:
+ - name: mta-exim-version-469
    regex: Exim 4.69
    case: false
    description: Exim MTA 4.69
    confidence: 100
    references:
     - http://www.exim.org/
- - mta-exim-version-471:
+ - name: mta-exim-version-471
    regex: Exim 4.71
    case: false
    description: Exim MTA 4.71
    confidence: 100
    references:
     - http://www.exim.org/
- - mta-exim-version-472:
+ - name: mta-exim-version-472
    regex: Exim 4.72
    case: false
    description: Exim MTA 4.72
    confidence: 100
    references:
     - http://www.exim.org/lurker/message/20100603.124841.72820057.ja.html
- - service-forefront:
+ - name: service-forefront
    regex: Forefront-Antispam-Report
    description: Forefront Services
    confidence: 100
    references:
     - http://www.microsoft.com/forefront/en/us/default.aspx
-
+ - name: av-sophos
+   regex: Sophos
+   description: Sophos Antivirus
+   confidence: 100
+   references:
+     - http://www.sophos.com

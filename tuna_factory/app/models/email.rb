@@ -2,7 +2,7 @@ require 'mail'
 
 class Email < ActiveRecord::Base
 
-	#has_many :fingerprints
+	has_many :fingerprint_matches
 
 	def servers
 		Mail.new(self.fulltext).received
@@ -41,7 +41,7 @@ class Email < ActiveRecord::Base
 
 	## returns all fingerprints 
 	def fingerprint
-		matched_fingerprints = [] 
+		matched_fingerprints = nil
 		Fingerprint.all.each do |fp|
 			puts "Checking for " + fp.description.to_s 
 			if fp.check(fulltext)

@@ -1,0 +1,18 @@
+<h1>Listing fingerprint_matches</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @fingerprint_matches.each do |fingerprint_match| %>
+  <tr>
+    <td><%= link_to 'Show', fingerprint_match %></td>
+    <td><%= link_to 'Edit', edit_fingerprint_match_path(fingerprint_match) %></td>
+    <td><%= link_to 'Destroy', fingerprint_match, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New fingerprint_match', new_fingerprint_match_path %>

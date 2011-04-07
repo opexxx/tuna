@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :fingerprint_matches
+
   map.resources :emails
   map.resources :fingerprints
   
