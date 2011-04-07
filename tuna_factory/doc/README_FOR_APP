@@ -1,0 +1,4 @@
+email processor
+ - using rails 2.3.8
+ - mail gem
+ 

@@ -1,0 +1,65 @@
+# YAML:1.0
+# email is sent here
+# scheme: firstname lastname,email
+to_csv: /home/[user]/operation_tuna/email.txt
+# email is sent from this address
+from: [user]@gmail.com
+# email subject
+subject: "ohboy"
+# email type ( text or text/html )
+type: text
+# msg body file
+msg_file: /home/[user]/operation_tuna/email/body.txt
+# number of seconds to wait before next email
+wait: 1
+# prepend the first name to the email body
+name: no
+# add custom signature from file
+sig: no
+# signature file
+sig_file: sig
+# debugging option for connecting and sending emails
+# (0=no, 1=yes)
+debug: 0
+
+#### SMTP server configuration ####
+# smtp server (for use smtp.gmail.com)
+smtp_server: localhost
+# smtp port (for gmail use 587)
+smtp_port: 25
+# user account to access smtp
+smtp_user: "" 
+# user's password to access smtp 
+smtp_passwd: ""
+# smtp connect use TLS (gmail requires TLS)
+smtp_tls: no
+#### Attachment Information ####
+# add an email attachment 
+attachment: no
+# full path to file attachment
+attachment_path: /tmp/MS09-012.zip
+# name of file attachment
+attachment_file: MS09-012.zip
+# type of attachment
+attachment_file_type: application/zip
+
+#### Metasploit/Payload Creation ####
+# create a metasploit payload
+make_payload: no
+# zip the payload 
+zip_payload: no
+# metasploit server ip
+msf_ip: 127.0.0.1
+# metasploit server port
+msf_port: 443
+# metasploit payload
+msf_payload: windows/meterpreter/reverse_tcp
+# metasploit payload
+msf_filename: MS09-012.exe
+# metasploit location
+msf_location: /pentest/exploits/framework3
+# change the extension
+msf_change_ext: yes
+# new extension
+msf_payload_ext: vxe
+

@@ -1,0 +1,73 @@
+Delivered-To: aesopisthename@gmail.com
+Received: by 10.224.11.67 with SMTP id s3cs299560qas;
+        Sat, 19 Feb 2011 13:46:57 -0800 (PST)
+Received: by 10.213.17.20 with SMTP id q20mr2636468eba.87.1298152016713;
+        Sat, 19 Feb 2011 13:46:56 -0800 (PST)
+Return-Path: <>
+Received: from smtp4.mundo-r.com (smtp4.mundo-r.com [212.51.32.151])
+        by mx.google.com with ESMTP id a20si9335997eei.75.2011.02.19.13.46.56;
+        Sat, 19 Feb 2011 13:46:56 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of smtp4.mundo-r.com designates 212.51.32.151 as permitted sender) client-ip=212.51.32.151;
+Authentication-Results: mx.google.com; spf=pass (google.com: best guess record for domain of smtp4.mundo-r.com designates 212.51.32.151 as permitted sender) smtp.mail=
+Message-Id: <093058$9sr3ui@gasset04.mundo-r.ggc>
+Received: from localhost by smtp4.mundo-r.com;
+  19 Feb 2011 22:46:56 +0100
+Date: 19 Feb 2011 22:46:56 +0100
+To: aesopisthename@gmail.com
+From: "Postmaster R" <postmaster@mundo-r.com>
+Subject: Fallo en la entrega del mensaje
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status; boundary="JpO/E.4dAcHns5L.Wd+oD.1AYHWw"
+
+--JpO/E.4dAcHns5L.Wd+oD.1AYHWw
+content-type: text/plain;
+    charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+El siguiente mensaje destinado a NYhiRK1AyblrEAVdHaOUSP1nHALHvI@regio7.cat =
+no se ha podido entregar.
+El motivo del error es el siguiente:
+5.1.0 - Unknown address error 550-'5.1.1 <NYhiRK1AyblrEAVdHaOUSP1nHALHvI@re=
+gio7.cat>: Recipient address rejected: User unknown in virtual mailbox tabl=
+e'
+
+--JpO/E.4dAcHns5L.Wd+oD.1AYHWw
+content-type: message/delivery-status
+
+Reporting-MTA: dns; smtp4.mundo-r.com
+
+Final-Recipient: rfc822;NYhiRK1AyblrEAVdHaOUSP1nHALHvI@regio7.cat
+Action: failed
+Status: 5.0.0 (permanent failure)
+Remote-MTA: dns; [195.55.246.97]
+Diagnostic-Code: smtp; 5.1.0 - Unknown address error 550-'5.1.1 <NYhiRK1AyblrEAVdHaOUSP1nHALHvI@regio7.cat>: Recipient address rejected: User unknown in virtual mailbox table' (delivery attempts: 0)
+
+--JpO/E.4dAcHns5L.Wd+oD.1AYHWw
+content-type: message/rfc822
+
+Received-SPF: Neutral identity=mailfrom; client-ip=173.255.203.129;
+  receiver=mx.mundo-r.com;
+  envelope-from="aesopisthename@gmail.com";
+  x-sender="aesopisthename@gmail.com";
+  x-conformance=spf_only;
+  x-record-type="v=spf1"
+X-IronPort-Anti-Spam-Filtered: true
+X-IronPort-Anti-Spam-Result: AhcHAObIX02t/8uBYmdsb2JhbACCZJVHAY0waBcHBAMFCREgBLlIhV4E
+X-IronPort-AV: E=Sophos;i="4.62,192,1297033200"; 
+   d="scan'208";a="332238798"
+Received: from li213-129.members.linode.com (HELO bolivia) ([173.255.203.129])
+  by mx.mundo-r.com with ESMTP; 19 Feb 2011 22:46:54 +0100
+Received: from YOsVMvBu (localhost [127.0.0.1])
+	by bolivia (Postfix) with ESMTP id BFC6714B656
+	for <NYhiRK1AyblrEAVdHaOUSP1nHALHvI@regio7.cat>; Sat, 19 Feb 2011 21:46:52 +0000 (UTC)
+From: 
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="_Part_619_74003347_1881098210"
+Subject: ohboy
+Date: Sat,19 Feb 2011 21:46:52 +0000
+Message-ID: <MCCYgBCqxhR628Rnuepyijn2nr4d2rN9RDPIBkh0U@TeCoEzZ>
+To:  NYhiRK1AyblrEAVdHaOUSP1nHALHvI@regio7.cat
+
+--JpO/E.4dAcHns5L.Wd+oD.1AYHWw--
+
+

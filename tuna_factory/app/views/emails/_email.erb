@@ -1,0 +1,9 @@
+  <tr>
+    <td><%=link_to email.domain, email %></td>
+    <td><%=h email.path.split(" ").reverse.join(" -> ") %></td>
+    <td><%=h email.distance %></td>
+    <td><%=h email.updated_at %></td>
+    <td></td>
+    <td><%= link_to 'Edit', edit_email_path(email) %></td>
+    <td><%= link_to 'Destroy', email, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>

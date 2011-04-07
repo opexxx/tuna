@@ -1,0 +1,25 @@
+stopped & started several times
+ - around 20k
+ - and around 230k
+ 
+ 
+pulling down mail is a pain in the ass
+ - first tried using pop
+ - then IMAP
+ - 40 ruby gems
+  - tmail - don't use this, use mail (hit a bug)
+  - mail (https://github.com/mikel/mail)
+  - straight, via imap
+
+in rails?
+ - http://railstips.org/blog/archives/2008/10/27/using-gmail-with-imap-to-receive-email-in-rails/
+ - http://pyropus.ca/software/getmail/ (manually download)
+
+ - mailman?
+
+install getmail4
+
+processing it is too
+ - 
+ 
+ 

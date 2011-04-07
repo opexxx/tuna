@@ -1,0 +1,8 @@
+ - mta-exchange-version-sp1:
+    regex: 8.1.436
+    case: false
+    description: Microsoft Exchange Server 2007 SP1
+    confidence: 100
+    references:
+     - http://www.microsoft.com/
+
