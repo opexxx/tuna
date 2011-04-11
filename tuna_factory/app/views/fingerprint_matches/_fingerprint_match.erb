@@ -1,0 +1,7 @@
+  <tr>
+    <td><%=link_to fingerprint.id, fingerprint_match.fingerprint_id %></td>
+    <td><%=link_to email.id, fingerprint_match.email_id %></td>
+    <td></td>
+    <td><%= link_to 'Edit', edit_fingerprint_match_path(fingerprint_match) %></td>
+    <td><%= link_to 'Destroy', fingerprint_match, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>

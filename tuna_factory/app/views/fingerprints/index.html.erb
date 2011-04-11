@@ -1,0 +1,28 @@
+<h1>Listing Fingerprints</h1>
+
+
+ <!-- projects/index.rhtml -->
+<% form_tag fingerprints_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+<br/>
+<br/>
+
+<%= page_entries_info @fingerprints %><br />
+  <table>
+  <th>
+     <tr>
+       <%= sort_header_tag('name',{ :page => params[:page], :n => params[:n], :order => params[:order]}) %>
+       <%= sort_header_tag('regex', {:page => params[:page], :n => params[:n], :order => params[:order]}) %>
+       <td> count </td>
+     </tr>
+ </th>
+<%= will_paginate @fingerprints, :previous_label => "Newer", :next_label => "Older", :reverse => true, :page_links => true %>
+<%= render :partial => 'fingerprint', :collection => @fingerprints %>
+   </table>
+<br />
+<br />
+<%= link_to 'New fingerprint', new_fingerprint_path %><br />

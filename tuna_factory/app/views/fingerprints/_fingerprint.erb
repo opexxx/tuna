@@ -1,0 +1,8 @@
+  <tr>
+    <td><%=link_to fingerprint.name, fingerprint %></td>
+    <td><%=h fingerprint.regex %></td>
+    <td><%=h fingerprint.fingerprint_matches.count %></td>
+    <td></td>
+    <td><%= link_to 'Edit', edit_fingerprint_path(fingerprint) %></td>
+    <td><%= link_to 'Destroy', fingerprint, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
