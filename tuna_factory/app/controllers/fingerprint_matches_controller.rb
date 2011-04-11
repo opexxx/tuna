@@ -14,7 +14,9 @@ class FingerprintMatchesController < ApplicationController
   # GET /fingerprint_matches/1.xml
   def show
     @fingerprint_match = FingerprintMatch.find(params[:id])
-
+    r = Regexp.new(Fingerprint.find_by_id(@fingerprint_match.id).regex)
+    @match_string = r.match(@fingerprint_match.email.fulltext)
+    	
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @fingerprint_match }

@@ -1,18 +1,28 @@
-
-<p>
-  <b>fingerprint: </b>
-  <%=h @fingerprint_match.fingerprint.regex  %>
-</p>
+<h1>Fingerprint Match</h1>
 
 
-<p>
-  <b>Email: </b>
-  <pre>
-  <%=h @fingerprint_match.email.fulltext  %>
-  </pre>
-</p>
+ <!-- projects/index.rhtml -->
+<% form_tag fingerprint_match_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+<br/>
+<br/>
 
+<%= page_entries_info @fingerprint_match %><br />
+  <table>
+  <th>
+     <tr>
+       <%= sort_header_tag('fingerprint_id',{ :page => params[:page], :n => params[:n], :order => params[:order]}) %>
+       <%= sort_header_tag('email_id', {:page => params[:page], :n => params[:n], :order => params[:order]}) %>
+     </tr>
+ </th>
+<%= will_paginate @fingerprint_match, :previous_label => "Newer", :next_label => "Older", :reverse => true, :page_links => true %>
+<%= render :partial => 'fingerprint_match', :collection => @fingerprint_match %>
+   </table>
+<br />
+<br />
+<%= link_to 'New Fingerprint', new_fingerprint_path %><br />
 
-
-<%= link_to 'Edit', edit_fingerprint_match_path(@fingerprint_match) %> |
-<%= link_to 'Back', fingerprint_matches_path %>

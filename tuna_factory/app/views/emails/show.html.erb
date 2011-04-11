@@ -1,15 +1,15 @@
 <% @mail_object = Mail.new(@email.fulltext); nil %>
 
 <p>
-  <b>Bounced:</b>
-  <%=h     @mail_object.bounced?.to_s %>
+  <b>Domain:</b>
+  <%=h 	@email.domain %>
 </p>
 
 <p>
   <b>Fingerprints:</b><br/>
   <ul>
   <% @email.fingerprint_matches.each do |match| %>
-  <li><a href=<%=h fingerprint_match_path(@match)%>><%=h match.fingerprint.name + " (/" + match.fingerprint.regex + "/)"%></a></li>
+  <li><a href=<%=h fingerprint_path(match.fingerprint)%>><%=h match.fingerprint.name + " (/" + match.fingerprint.regex + "/)"%></a></li>
   <% end %>
   </ul>
 </p>
@@ -25,25 +25,8 @@
 </p>
 
 <p>
-  <b>Subject:</b>
-  <%=h @mail_object.subject %>
-</p>
-
-<p>
   <b>From:</b>
   <%=h @mail_object.from %>
-</p>
-
-<p>
-  <b>To:</b>
-  <%=h @mail_object.to %>
-</p>
-
-<p>
-  <b>Header:</b>
-  <pre>
-  <%=h @mail_object.header.to_s %>
-  </pre>
 </p>
 
 <p>
