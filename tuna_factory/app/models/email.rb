@@ -27,7 +27,7 @@ class Email < ActiveRecord::Base
 		return mail_servers			
 	end
 
-	def self.search(search, page, sort_order, n=100)
+	def self.search(search, page, sort_order, n=1000)
 		  paginate 	:per_page => n,
 		  		:page => page,
 		  		:order => sort_order,

@@ -9,4 +9,6 @@ then
 fi
 
 DIR=$1
-rake tuna:process TUNA_DIR=$DIR
+echo "Tuna directory: $DIR"
+
+rake tuna:process_and_fingerprint TUNA_DIR=$DIR

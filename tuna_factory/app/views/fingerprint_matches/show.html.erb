@@ -1,3 +1,18 @@
 
+<p>
+  <b>fingerprint: </b>
+  <%=h @fingerprint_match.fingerprint.regex  %>
+</p>
+
+
+<p>
+  <b>Email: </b>
+  <pre>
+  <%=h @fingerprint_match.email.fulltext  %>
+  </pre>
+</p>
+
+
+
 <%= link_to 'Edit', edit_fingerprint_match_path(@fingerprint_match) %> |
 <%= link_to 'Back', fingerprint_matches_path %>

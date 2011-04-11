@@ -6,6 +6,13 @@
    confidence: 100
    references:
     - http://www.sendmail.org
+ - name: mta-qmail
+   regex: qmail
+   case: false
+   description: qmail MTA
+   confidence: 100
+   references:
+    - http://www.qmail.org
  - name: mta-postfix
    regex: postfix
    case: false
@@ -20,6 +27,24 @@
    confidence: 100
    references:
     - http://www.exim.org/
+ - name: mta-eudora
+   regex: eudora
+   case: false
+   description: Eudora MTA
+   confidence: 100
+   references:
+ - name: mta-oracle
+   regex: Oracle
+   case: false
+   description: Oracle MTA
+   confidence: 50
+   references:
+ - name: mta-zimbra
+   regex: zimbra
+   case: false
+   description: Zimbra MTA
+   confidence: 50
+   references:
  - name: mta-exchange
    regex: exchange
    case: false
@@ -27,13 +52,19 @@
    confidence: 100
    references:
     - http://www.microsoft.com
- - name: mta-exchange-version-sp1
+ - name: mta-exchange-2007-version-sp1
    regex: 8.1.436
    case: false
    description: Microsoft Exchange Server 2007 SP1
    confidence: 100
    references:
     - http://www.microsoft.com/
+ - name: mta-exchange-2010-version-sp1
+   regex: 14.0.639.2
+   case: false
+   description: Microsoft Exchange Server 2010 SP1
+   references:
+    - http://www.experts-exchange.com/Software/Server_Software/Email_Servers/Exchange/Q_26698226.html
  - name: mta-exim-version-469
    regex: Exim 4.69
    case: false
@@ -55,15 +86,37 @@
    confidence: 100
    references:
     - http://www.exim.org/lurker/message/20100603.124841.72820057.ja.html
+ - name: service-bigfish
+   regex: Oracle
+   case: false
+   description: Bigfish
+   confidence: 100
+   references:
  - name: service-forefront
    regex: Forefront-Antispam-Report
    description: Forefront Services
    confidence: 100
    references:
     - http://www.microsoft.com/forefront/en/us/default.aspx
+ - name: av-trend-imss
+   regex: TREND IMSS SMTP Service 7.1
+   description: Trend Micro Scanning Service? TODO
+   confidence: 100
+   references:
+    - http://us.trendmicro.com/us/products/enterprise/interscan-messaging-security-suite/
  - name: av-sophos
    regex: Sophos
    description: Sophos Antivirus
    confidence: 100
    references:
      - http://www.sophos.com
+ - name: config-userid_0
+   regex: userid 0
+   description: Something (postfix?) reported to be running as root
+   confidence: 100
+   references:
+ - name: config-test
+   regex: test
+   description: Something reported as test
+   confidence: 100
+   references:

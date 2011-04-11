@@ -1,18 +1,27 @@
 class Fingerprint < ActiveRecord::Base
-	
+
 	has_many :fingerprint_matches
-	
+
+=begin
 	def check(text)
-		puts "checking: #{text} for #{regex}"
+		puts "Checking: #{text} for #{regex}"
 		if text =~ Regexp.new(self.regex,true)
 			return true
 		end
 	end
-	
+=end
+
 	def match(email)
-	  puts "Email #{email.inspect}"
-	  puts "Fingerprint #{self.inspect}"
-	  if email.fulltext =~ Regexp.new(self.regex,true)
+		puts "Trying: #{regex}"
+		if email.fulltext =~ Regexp.new(self.regex,true)
+  
+			## Check to see if we already have this fingerprint
+			f = FingerprintMatch.find_by_email_id email.id	
+			if f
+				return if f.fingerprint_id == self.id and f.email_id == email.id
+			end
+			
+			puts "Matched: #{regex}"				
 			FingerprintMatch.create :email_id => email.id, :fingerprint_id => self.id
 		end
 	end
@@ -25,13 +34,12 @@ class Fingerprint < ActiveRecord::Base
 	end
 	
 	def load_from_hash(hash)
-	  puts "Loading from hash #{hash}"
+	  	puts "Loading from hash #{hash}"
 		self.name  = hash["name"]
 		self.regex = hash["regex"]
-	  self.description = hash["description"]
+	  	self.description = hash["description"]
 		self.confidence = hash["confidence"]
 		self.references = hash["references"]
 		self.case_sensitive = hash["case"]
 	end
-
 end
