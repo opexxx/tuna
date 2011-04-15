@@ -55,11 +55,32 @@ end
   # POST /fps
   # POST /fps.xml
   def create
-    @fingerprint = Fingerprint.new(params[:fp])
+    name = params[:fingerprint][:name]
+    regex = params[:fingerprint][:regex]
+    description = params[:fingerprint][:description]
+    confidence = params[:fingerprint][:confidence]
+    references = params[:fingerprint][:references].split(",")
+
+	puts "name: " + name
+	puts "name: " + regex
+	puts "name: " + description
+	puts "name: " + confidence
+	puts "name: " + references.to_s
+
+	x = Hash.new
+	x[:name] = name
+	x[:regex] = regex
+	x[:description] = description
+	x[:confidence] = confidence
+	x[:references] = references
+
+	puts "X:" + x.inspect
+	
+    @fingerprint = Fingerprint.new(x)
 
     respond_to do |format|
       if @fingerprint.save
-        flash[:notice] = 'fp was successfully created.'
+        flash[:notice] = 'fingerprint was successfully created.'
         format.html { redirect_to(@fingerprint) }
         format.xml  { render :xml => @fingerprint, :status => :created, :location => @fingerprint }
       else
@@ -76,7 +97,7 @@ end
 
     respond_to do |format|
       if @fingerprint.update_attributes(params[:fp])
-        flash[:notice] = 'fp was successfully updated.'
+        flash[:notice] = 'fingerprint was successfully updated.'
         format.html { redirect_to(@fingerprint) }
         format.xml  { head :ok }
       else
@@ -93,7 +114,7 @@ end
     @fingerprint.destroy
 
     respond_to do |format|
-      format.html { redirect_to(fps_url) }
+      format.html { redirect_to(fingerprints_url) }
       format.xml  { head :ok }
     end
   end

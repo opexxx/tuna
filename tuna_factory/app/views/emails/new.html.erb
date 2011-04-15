@@ -1,15 +1,11 @@
-<h1>New fingerprint</h1>
+<h1>New email</h1>
 
-<% form_for(@fp) do |f| %>
+<% form_for(@email) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :regex %><br />
-    <%= f.text_area :regex %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label :fulltext %><br />
+    <%= f.text_area :fulltext %>
   </p>
 
   <p>
@@ -17,4 +13,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', fingerprints_path %>
+<%= link_to 'Back', emails_path %>

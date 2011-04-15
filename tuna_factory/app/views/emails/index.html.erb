@@ -18,8 +18,8 @@
        <%= sort_header_tag('domain',{ :page => params[:page], :n => params[:n], :order => params[:order]}) %>
        <%= sort_header_tag('Path', {:page => params[:page], :n => params[:n], :order => params[:order]}) %>
        <%= sort_header_tag('distance', {:page => params[:page], :n => params[:n], :order => params[:order]}) %>
-
        <%= sort_header_tag('updated_at',{:page => params[:page], :n => params[:n], :order => params[:order]}) %>
+       <td>Fingerprint Matches</td>
      </tr>
  </th>
 <%= will_paginate @emails, :previous_label => "Newer", :next_label => "Older", :reverse => true, :page_links => true %>

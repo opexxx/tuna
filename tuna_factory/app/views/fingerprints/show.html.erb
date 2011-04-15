@@ -10,13 +10,29 @@
 </p>
 
 <p>
+  <b>Regex: </b>
+  <%=h @fingerprint.regex  %>
+</p>
+
+<p>
+  <b>Confidence: </b>
+  <%=h @fingerprint.confidence  %>
+</p>
+
+
+<p>
+  <b>References: </b>
+  <%=h @fingerprint.references %>
+</p>
+
+
+<p>
   <b>Matches: </b>
   <ul>
   <% @email_matches.each do |match| %>
   <li><a href=<%=h email_path(match) %>> <%=h match.domain %> </a></li>
   <% end %>
   </ul>
-</p>
 </p>
 
 <%= link_to 'Edit', edit_fingerprint_path(@fingerprint) %> |
