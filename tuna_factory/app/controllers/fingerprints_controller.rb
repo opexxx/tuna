@@ -11,7 +11,7 @@ class FingerprintsController < ApplicationController
 
 
 def index
-	sort_init 'regex'
+	sort_init 'name'
 	sort_update
 	
 	@fingerprints = Fingerprint.search(params[:search], params[:page], sort_clause, params[:n])	
@@ -52,6 +52,28 @@ end
     @fingerprint = Fingerprint.find(params[:id])
   end
 
+  # GET /fps/1/run
+  def run
+    @fingerprint = Fingerprint.find(params[:id])
+    @fingerprint.run
+    
+    respond_to do |format|
+        flash[:notice] = 'fingerprinted...'
+        format.html { redirect_to(@fingerprint) }
+        format.xml  { render :xml => @fingerprint, :location => @fingerprint }
+    end
+  end
+  
+  def run_all
+    @fingerprints = Fingerprint.all
+    @fingerprints.each {|fingerprint| fingerprint.run}
+    respond_to do |format|
+        flash[:notice] = 'fingerprinted...'
+        format.html # show.html.erb
+        format.xml  { render :xml => @fingerprints }
+    end
+  end  
+
   # POST /fps
   # POST /fps.xml
   def create
@@ -59,23 +81,16 @@ end
     regex = params[:fingerprint][:regex]
     description = params[:fingerprint][:description]
     confidence = params[:fingerprint][:confidence]
+    severity = params[:fingerprint][:severity]  
     references = params[:fingerprint][:references].split(",")
-
-	puts "name: " + name
-	puts "name: " + regex
-	puts "name: " + description
-	puts "name: " + confidence
-	puts "name: " + references.to_s
-
+    
 	x = Hash.new
 	x[:name] = name
 	x[:regex] = regex
 	x[:description] = description
 	x[:confidence] = confidence
-	x[:references] = references
-
-	puts "X:" + x.inspect
-	
+	x[:severity] = severity	
+	x[:references] = references	
     @fingerprint = Fingerprint.new(x)
 
     respond_to do |format|
@@ -93,10 +108,29 @@ end
   # PUT /fps/1
   # PUT /fps/1.xml
   def update
+    
+      name = params[:fingerprint][:name]
+      regex = params[:fingerprint][:regex]
+      description = params[:fingerprint][:description]
+      confidence = params[:fingerprint][:confidence]
+      severity = params[:fingerprint][:severity]
+      references = params[:fingerprint][:references].split(",")
+
+
+  	x = Hash.new
+  	x[:name] = name
+  	x[:regex] = regex
+  	x[:description] = description
+  	x[:severity] = severity
+  	x[:confidence] = confidence
+  	x[:references] = references
+
+  	puts "X:" + x.inspect
+  	    
     @fingerprint = Fingerprint.find(params[:id])
 
     respond_to do |format|
-      if @fingerprint.update_attributes(params[:fp])
+      if @fingerprint.update_attributes(x)
         flash[:notice] = 'fingerprint was successfully updated.'
         format.html { redirect_to(@fingerprint) }
         format.xml  { head :ok }
@@ -118,6 +152,7 @@ end
       format.xml  { head :ok }
     end
   end
+  
   
     #helper_method :sort_column, :sort_direction
 

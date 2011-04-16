@@ -2,26 +2,13 @@ class Fingerprint < ActiveRecord::Base
 
 	has_many :fingerprint_matches
 
-=begin
-	def check(text)
-		puts "Checking: #{text} for #{regex}"
-		if text =~ Regexp.new(self.regex,true)
-			return true
-		end
-	end
-=end
-
 	def match(email)
-		puts "Trying: #{regex}"
 		if email.fulltext =~ Regexp.new(self.regex,true)
-  
 			## Check to see if we already have this fingerprint
 			f = FingerprintMatch.find_by_email_id email.id	
 			if f
 				return if f.fingerprint_id == self.id and f.email_id == email.id
 			end
-			
-			puts "Matched: #{regex}"				
 			FingerprintMatch.create :email_id => email.id, :fingerprint_id => self.id
 		end
 	end
@@ -33,13 +20,33 @@ class Fingerprint < ActiveRecord::Base
 				        :conditions => ['description like ?', "%#{search}%"]
 	end
 	
-	def load_from_hash(hash)
-	  	puts "Loading from hash #{hash}"
+	def run
+	  Email.all.each {|email| self.match(email)}
+  end
+  
+	def from_yaml(hash)
+	  puts "Loading from hash #{hash}"
 		self.name  = hash["name"]
 		self.regex = hash["regex"]
-	  	self.description = hash["description"]
+	  self.description = hash["description"]
 		self.confidence = hash["confidence"]
-		self.references = hash["references"]
+		self.severity = hash["severity"]
+    self.references = hash["references"].to_a
 		self.case_sensitive = hash["case"]
 	end
+	
+	def to_yaml
+	  out = ""
+	  out += " - name: #{self.name}\n"
+	  out += "   regex: #{self.regex}\n"
+	  out += "   description: #{self.description}\n"
+	  out += "   confidence: #{self.confidence}\n"
+	  out += "   severity: #{self.severity}\n"
+	  out += "   references:\n"
+	  if self.references.respond_to? :each
+	    self.references.each{ |reference| out += "    - #{reference}\n"}
+	  else
+	    out += "   #{self.references}\n"
+    end
+  end
 end

@@ -3,8 +3,26 @@ $:.unshift(File.join(File.dirname(__FILE__), "..", "tuna"))
 require 'process'
 
 namespace :tuna do
+
+	task :import_fingerprints => :environment do
+  	@fingerprint_file = ENV["TUNA_FINGERPRINT_FILE"]
+		f = EmailFingerprinter.new
+		f.load_fingerprints(@fingerprint_file)
+	end
 	
-	desc "Process Emails"
+	task :export_fingerprints => :environment do
+	  	f = EmailFingerprinter.new
+  		f.export_fingerprints
+	end
+	
+	task :process => :environment do
+		tuna_dir = ENV["TUNA_DIR"]
+		puts "Tuna Directory: #{tuna_dir}"
+		e  = EmailProcessor.new(tuna_dir)
+		e.process
+	end
+	
+	desc "Process and Fingerprint Emails"
 	task :process_and_fingerprint => :environment do
 		tuna_dir = ENV["TUNA_DIR"]
 		puts "Tuna Directory: #{tuna_dir}"

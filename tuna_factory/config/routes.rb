@@ -1,8 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :fingerprint_matches
-
   map.resources :emails
   map.resources :fingerprints
+  
+  map.run 'fingerprints/:id/run', :controller => 'fingerprints', :action => 'run'
+  map.run_all 'fingerprints/run_all', :controller => 'fingerprints', :action => 'run_all'
   
   # The priority is based upon order of creation: first created -> highest priority.
 

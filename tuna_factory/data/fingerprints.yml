@@ -1,122 +1,119 @@
----
  - name: mta-sendmail
    regex: sendmail
-   case: false
    description: Sendmail MTA
    confidence: 100
-   references:
-    - http://www.sendmail.org
+   severity: 1
+   references: ['http://www.sendmail.org']
  - name: mta-qmail
    regex: qmail
-   case: false
    description: qmail MTA
    confidence: 100
-   references:
-    - http://www.qmail.org
+   severity: 1
+   references: ['http://www.qmail.org']
  - name: mta-postfix
    regex: postfix
-   case: false
    description: Postfix MTA
    confidence: 100
-   references:
-    - http://www.postfix.org/
+   severity: 1
+   references: ['http://www.postfix.org/']
  - name: mta-exim
    regex: exim
-   case: false
    description: Exim MTA
    confidence: 100
-   references:
-    - http://www.exim.org/
+   severity: 1
+   references: ['http://www.exim.org/']
  - name: mta-eudora
    regex: eudora
-   case: false
    description: Eudora MTA
+   severity: 1
    confidence: 100
-   references:
+   references: ['http://www.eudora.com']
  - name: mta-oracle
    regex: Oracle
-   case: false
    description: Oracle MTA
+   severity: 1
    confidence: 50
-   references:
+   references: ['http://www.oracle.com']
  - name: mta-zimbra
    regex: zimbra
-   case: false
    description: Zimbra MTA
+   severity: 1
    confidence: 50
-   references:
+   references: ['http://www.zimbra.com']
  - name: mta-exchange
    regex: exchange
-   case: false
    description: Microsoft Exchange Server
+   severity: 1
    confidence: 100
-   references:
-    - http://www.microsoft.com
+   references: ['http://www.microsoft.com']
  - name: mta-exchange-2007-version-sp1
    regex: 8.1.436
-   case: false
    description: Microsoft Exchange Server 2007 SP1
    confidence: 100
-   references:
-    - http://www.microsoft.com/
+   severity: 1
+   references: ['http://www.microsoft.com/']
  - name: mta-exchange-2010-version-sp1
    regex: 14.0.639.2
-   case: false
    description: Microsoft Exchange Server 2010 SP1
-   references:
-    - http://www.experts-exchange.com/Software/Server_Software/Email_Servers/Exchange/Q_26698226.html
+   confidence: 
+   references: ['http://www.experts-exchange.com/Software/Server_Software/Email_Servers/Exchange/Q_26698226.html']
  - name: mta-exim-version-469
    regex: Exim 4.69
-   case: false
    description: Exim MTA 4.69
    confidence: 100
-   references:
-    - http://www.exim.org/
+   severity: 75
+   references: ['http://www.exim.org/']
  - name: mta-exim-version-471
    regex: Exim 4.71
-   case: false
    description: Exim MTA 4.71
    confidence: 100
-   references:
-    - http://www.exim.org/
+   severity: 1
+   references: ['http://www.exim.org/']
  - name: mta-exim-version-472
    regex: Exim 4.72
-   case: false
    description: Exim MTA 4.72
    confidence: 100
-   references:
-    - http://www.exim.org/lurker/message/20100603.124841.72820057.ja.html
+   severity: 50
+   references: ['http://www.exim.org/lurker/message/20100603.124841.72820057.ja.html']
  - name: service-bigfish
-   regex: Oracle
-   case: false
+   regex: Bigfish
    description: Bigfish
    confidence: 100
-   references:
+   severity: 1
+   references: ['']
  - name: service-forefront
    regex: Forefront-Antispam-Report
    description: Forefront Services
    confidence: 100
-   references:
-    - http://www.microsoft.com/forefront/en/us/default.aspx
+   severity: 1
+   references: ['http://www.microsoft.com/forefront/en/us/default.aspx']
  - name: av-trend-imss
    regex: TREND IMSS SMTP Service 7.1
    description: Trend Micro Scanning Service? TODO
    confidence: 100
-   references:
-    - http://us.trendmicro.com/us/products/enterprise/interscan-messaging-security-suite/
+   severity: 1
+   references: ['http://us.trendmicro.com/us/products/enterprise/interscan-messaging-security-suite''']
  - name: av-sophos
    regex: Sophos
    description: Sophos Antivirus
    confidence: 100
-   references:
-     - http://www.sophos.com
+   severity: 1
+   references: ['http://www.sophos.com']
  - name: config-userid_0
    regex: userid 0
    description: Something (postfix?) reported to be running as root
    confidence: 100
+   severity: 1
    references:
  - name: config-test
    regex: test
    description: Something reported as test
    confidence: 100
+   severity: 1
    references:
+ - name: Starscan
+   regex: X-StarScan-Version
+   description: Starscan
+   confidence: 100
+   severity: 1
+   references: ['']

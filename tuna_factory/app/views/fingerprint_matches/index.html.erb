@@ -1,18 +1,25 @@
-<h1>Listing Matches</h1>
+<h1>Listing Fingerprints</h1>
 
-<table>
-  <tr>
-  </tr>
 
-<% @fingerprint_matches.each do |fingerprint_match| %>
-  <tr>
-    <td><%= link_to 'Show', fingerprint_match %></td>
-    <td><%= link_to 'Edit', edit_fingerprint_match_path(fingerprint_match) %></td>
-    <td><%= link_to 'Destroy', fingerprint_match, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+ <!-- projects/index.rhtml -->
+<% form_tag fingerprint_matches_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
 <% end %>
-</table>
+<br/>
+<br/>
 
-<br />
-
-<%= link_to 'New fingerprint_match', new_fingerprint_match_path %>
+<%= page_entries_info @fingerprint_matches %><br />
+  <table>
+  <th>
+     <tr>
+       <%= sort_header_tag('email_id',{ :page => params[:page], :n => params[:n], :order => params[:order]}) %>
+       <%= sort_header_tag('fingerprint_id', {:page => params[:page], :n => params[:n], :order => params[:order]}) %>
+       <td> count </td>
+     </tr>
+ </th>
+<%= will_paginate @fingerprint_matches, :previous_label => "Newer", :next_label => "Older", :reverse => true, :page_links => true %>
+<%= render :partial => 'fingerprint_match', :collection => @fingerprint_matches %>
+   </table>

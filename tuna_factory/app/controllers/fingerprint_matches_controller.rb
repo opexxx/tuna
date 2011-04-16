@@ -2,8 +2,13 @@ class FingerprintMatchesController < ApplicationController
   # GET /fingerprint_matches
   # GET /fingerprint_matches.xml
   def index
-    @fingerprint_matches = FingerprintMatch.all
+    sort_init 'email_id'
+  	sort_update
 
+    @fingerprint_matches = FingerprintMatch.search(params[:search], params[:page], sort_clause, params[:n])	
+  	
+    
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @fingerprint_matches }

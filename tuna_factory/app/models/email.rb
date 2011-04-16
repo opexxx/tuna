@@ -1,4 +1,6 @@
 require 'mail'
+require 'resolv'
+require 'socket'
 
 class Email < ActiveRecord::Base
 
@@ -14,8 +16,51 @@ class Email < ActiveRecord::Base
 			interesting << server unless server =~ /10\.224/ or
 							server =~  /10\.42/
 		end
-		#return "TODO"
 	end
+	
+	def reachable_path
+	  reachable = []
+	  self.path.split(" ").each do |server|
+	    begin
+	      timeout(1) do
+          if TCPSocket::new( server, "smtp" )
+            reachable << server
+          end
+        end
+	    rescue Exception => e
+	      reachable << "unreachable"
+	    end
+	  end
+	  
+	  return reachable
+  end
+	
+	def pingable_path
+	  pingable = []
+	  self.path.split(" ").each do |server|
+	    begin
+	      pingable << ::Ping.pingecho(server,1)
+	    rescue Exception => e
+	      pingable << "no response"
+	    end
+	  end
+	  
+	  return pingable
+  end
+  
+  def resolved_path
+	  resolved = []
+	  self.path.split(" ").each do |server|
+	    begin
+	      resolved << `host #{server}`.split(" ").last
+	    rescue Exception => e
+	      resolved << "unreachable"
+	    end
+	  end
+	  
+	  return resolved
+  end
+	
 	
 	def grab_mx
 		mail_server_string = `host -t MX #{self.domain}`
@@ -31,7 +76,7 @@ class Email < ActiveRecord::Base
 		  paginate 	:per_page => n,
 		  		:page => page,
 		  		:order => sort_order,
-				:conditions => ['fulltext like ?', "%#{search}%"]
+				  :conditions => ['fulltext like ?', "%#{search}%"]
 	end
 	
 	def contains(string)

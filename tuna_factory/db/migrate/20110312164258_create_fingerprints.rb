@@ -5,6 +5,7 @@ class CreateFingerprints < ActiveRecord::Migration
       t.string   :regex
       t.text	 :description
       t.integer  :confidence
+      t.integer :severity
       t.text 	 :references
       t.boolean	 :case_sensitive
       t.timestamps

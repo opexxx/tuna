@@ -20,6 +20,16 @@
 </p>
 
 <p>
+  <b>Resolved Path:</b>
+  <%=h 	@email.resolved_path.reverse.join (" -> ") %>
+</p>
+
+<p>
+  <b>Reachable Path:</b>
+  <%=h 	@email.reachable_path.reverse.join (" -> ") %>
+</p>
+
+<p>
   <b>MX Records (Forward DNS):</b>
   <%=h @email.grab_mx  %>
 </p>

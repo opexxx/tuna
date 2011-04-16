@@ -17,6 +17,9 @@
      <tr>
        <%= sort_header_tag('name',{ :page => params[:page], :n => params[:n], :order => params[:order]}) %>
        <%= sort_header_tag('regex', {:page => params[:page], :n => params[:n], :order => params[:order]}) %>
+       <%= sort_header_tag('severity', {:page => params[:page], :n => params[:n], :order => params[:order]}) %>
+       <%= sort_header_tag('confidence', {:page => params[:page], :n => params[:n], :order => params[:order]}) %>
+
        <td> count </td>
      </tr>
  </th>

@@ -11,4 +11,4 @@ fi
 DIR=$1
 echo "Tuna directory: $DIR"
 
-rake tuna:process_and_fingerprint TUNA_DIR=$DIR
+rake tuna:process TUNA_DIR=$DIR

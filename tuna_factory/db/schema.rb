@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20110407062938) do
     t.string   "regex"
     t.text     "description"
     t.integer  "confidence"
+    t.integer  "severity"
     t.text     "references"
     t.boolean  "case_sensitive"
     t.datetime "created_at"
