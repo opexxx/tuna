@@ -1,0 +1,42 @@
+ - name: Release 8.5.1FP2
+   regex: Release 8.5.1FP2
+   description: Domino
+   confidence: 100
+   severity: 1
+   references:
+ - name: Lotus Domino Release 8.5.1FP3HF140
+   regex: Lotus Domino Release 8.5.1FP3HF140
+   description:
+   confidence: 100
+   severity: 1
+   references:
+ - name: Lotus Domino Release 8.0.2
+   regex: Lotus Domino Release 8.0.2
+   description:
+   confidence: 100
+   severity: 1
+   references:
+ - name: bank
+   regex: bank
+   description:
+   confidence: 100
+   severity: 1
+   references:
+ - name: banc
+   regex: banc
+   description:
+   confidence: 100
+   severity: 1
+   references:
+ - name: federal
+   regex: federal
+   description:
+   confidence: 100
+   severity: 1
+   references:
+ - name: eSafe SMTP Relay
+   regex: eSafe SMTP Relay
+   description: found in a turkish bank
+   confidence: 100
+   severity: 1
+   references:

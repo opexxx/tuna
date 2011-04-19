@@ -1,0 +1,54 @@
+ - name: Microsoft Exchange Server 2007
+   regex: Microsoft Exchange Server 2007
+   description: 
+   confidence: 100
+   severity: 1
+   references:
+ - name: Base64
+   regex: Base64
+   description: 
+   confidence: 100
+   severity: 1
+   references:
+ - name: 8.3.137.0
+   regex: 8.3.137.0
+   description: Microsoft SMTP Server
+   confidence: 100
+   severity: 1
+   references:
+ - name: 8.1.375.2
+   regex: 8.1.375.2
+   description: Microsoft SMTP Server
+   confidence: 100
+   severity: 1
+   references:
+ - name: messagelabs
+   regex: messagelabs
+   description: 
+   confidence: 100
+   severity: 1
+   references:
+ - name: Itemize by SMTP Server
+   regex: Itemize by SMTP Server
+   description: Somehow related to domino? 
+   confidence: 100
+   severity: 1
+   references:
+ - name: Release 8.5.2HF19
+   regex: Release 8.5.2HF19
+   description: Domino
+   confidence: 100
+   severity: 1
+   references:
+ - name: not listed in Domino Directory
+   regex: not listed in Domino Directory
+   description:  Domino directory fail
+   confidence: 100
+   severity: 1
+   references:
+ - name: Lotus Domino Release 8.0.1HF1238
+   regex: Lotus Domino Release 8.0.1HF1238
+   description: Lotus Domino Release 8.0.1HF1238
+   confidence: 100
+   severity: 1
+   references:

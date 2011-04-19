@@ -1,0 +1,10 @@
+  <tr>
+    <td><%=link_to email.domain, email %></td>
+    <td><%=h email.path.split(" ").reverse.join(" -> ") %></td>
+    <td><%=h email.distance %></td>
+    <td><%=h email.updated_at %></td>
+    <td><%=h email.fingerprint_matches.count %></td>
+    <td></td>
+    <td><%= link_to 'View', email_path(email) %></td>
+    <td><%= link_to 'Destroy', email, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
